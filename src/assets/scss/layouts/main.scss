@@ -32,7 +32,21 @@ body{font-size: 1.5rem;}
 	box-sizing: inherit;
 	font-size: inherit;
 	font-family: inherit;
+	scrollbar-width: thin;
 }
+
+::-webkit-scrollbar-button {
+	width:8px;
+	height:0px
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: grey;
+}
+
+::-webkit-scrollbar-track{background-color:#dedede}
+::-webkit-scrollbar{width: 8px; height: 8px;}
 
 img{max-width: 100%;}
 
@@ -157,6 +171,31 @@ button.btn{
 	}
 }
 
+.btn-circle{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: var(--color-second);
+	transition: background-color 0.2s ease 0s;
+	cursor: pointer;
+
+	.icon{fill: #fff;}
+	&:hover{background: var(--color-second-hover);}
+	&_orange{background: var(--color-primary);}
+	&_orange:hover{background: var(--color-primary-hover);}
+
+	&.disable{
+		background: var(--color-second);
+		opacity: 0.2;
+		cursor: auto;
+	}
+
+	&_orange.disable{background: var(--color-primary);}
+}
+
 .code{
 	background-color: #f7f7f7;
 	border: 1px solid #e1e1e8;
@@ -173,6 +212,20 @@ button.btn{
 .text-justify{text-align: justify !important;}
 .text-uppercase{text-transform: uppercase !important;}
 .text-bold {font-weight: 700 !important;}
+
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 55px;
+	width: 100vw;
+	height: 100vh;
+	padding: 37px 46px;
+	background: #F0F2F5;
+	overflow: hidden;
+}
+
+.main{height: 100%;}
 
 @media (max-width: 991px) {
 	.btn-back{
