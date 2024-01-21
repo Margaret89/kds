@@ -97,20 +97,6 @@ h5,.h5{
 	margin-bottom: 1rem;
 }
 
-// .wrapper{
-// 	display: flex;
-// 	flex-direction: column;
-// 	min-height: 100vh;
-// 	width: 100%;
-// 	margin: 0 auto;
-// }
-
-// main{
-// 	flex: 1 1 auto;
-// 	padding-bottom: 76px;
-// 	width: 100%;
-// }
-
 .btn,
 input[type="submit"].btn,
 button.btn{
@@ -223,6 +209,43 @@ button.btn{
 	padding: 37px 46px;
 	background: #F0F2F5;
 	overflow: hidden;
+
+	&_dark{
+		background: #15191F;
+		color: #fff;
+
+		.order-card{
+			background: #1F242C;
+			border-color: #2C3139;
+
+			&::after{background-image: url(/assets/img/curve-dark.svg);}
+		}
+
+		.order-card-item{
+			&__num{background: #0E0F12;}
+			&__num_orange{background: var(--color-primary);}
+		}
+
+		.panel-data,
+		.panel-actions-btn{
+			background: #1F242C;
+			border-color: #292D32;
+		}
+
+		.order-card-item{border-color: rgba(255, 255, 255, 0.06);}
+
+		.panel-actions-btn{
+			&__item{
+				.icon{fill: #fff;}
+			}
+
+			&__arr:first-child::after,
+			&__arr:last-child::after,
+			&__sect:not(:last-child)::after{
+				background: rgba(229, 231, 235, 0.11);
+			}
+		}
+	}
 }
 
 .main{height: 100%;}
