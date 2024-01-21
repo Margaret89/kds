@@ -48,7 +48,11 @@
 		.icon{fill: #926D0F;}
 	}
 
-	&__top{padding: 15px 26px 11px 18px;}
+	&__top{
+		padding: 15px 26px 18px 18px;
+		position: relative;
+		border-bottom: 1px solid #E5E7EB;
+	}
 
 	&__head{
 		display: flex;
@@ -66,6 +70,18 @@
 	&__title{
 		font-size: 3.4rem;
 		font-weight: 600;
+	}
+
+	&__count{
+		display: inline-flex;
+		align-items: center;
+		background: var(--color-primary);
+		font-size: 1.4rem;
+		font-weight: 700;
+		line-height: 1;
+		color: #fff;
+		padding: 4px 6px;
+		border-radius: 6px;
 	}
 
 	&__name-wrap{
@@ -109,7 +125,9 @@
 		transition: all 0.2s ease 0s;
 		animation: progress-card 5s ease 0s;
 		animation-fill-mode: forwards;
-		position: relative;
+		position: absolute;
+		bottom: 0;
+		left: 0;
 
 		&_orange{
 			--bg-progress: rgba(252,198,58,1);
@@ -139,6 +157,8 @@
 		transform: translateX(-50%);
 		z-index: 2;
 	}
+
+	&.disable{opacity: 0.4;}
 }
 
 .order-card-info-list{

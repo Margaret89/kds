@@ -4,7 +4,7 @@ block variables
 	- var title = 'Live';
 
 block content
-	.wrapper.wrapper_dark
+	.wrapper
 		main.main
 			.order-card-list
 				-
@@ -27,152 +27,87 @@ block content
 							progress:true,
 							child:[
 								{
-									num:'3',
-									num_color:'orange',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
-										'Tuna'
+										'Tuna',
+										'Extra cheese',
+										'Coca-cola 1.5L',
+										'1x Garlic sauce',
+										'2x Chipotle sauce',
 									],
 									note:'Note: Without tomato sauce',
 								},
-								{
-									num:'1',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna',
-										'Mushrooms',
-									]
-								},
-								{
-									num:'1',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna',
-										'Cheese',
-										'Sauces',
-										'Without tomato sauce',
-									]
-								},
 							],
-							pager:'3/6',
-							btn_status:'disable'
 						},
 						{
-							title:'2101',
-							name:'Mike',
-							tag:'New',
-							tag_color:'blue',
+							title:'102',
+							count:'1/3',
+							name:'Guest',
 							order_time:'28m ago',
 							status:'TA',
-							status_icon:'ic-pen',
-							status_icon_width:'13',
-							status_icon_height:'18',
+							status_icon:'ic-bell',
+							status_icon_width:'16',
+							status_icon_height:'16',
 							time:'00:12:39',
 							header_color:'green',
 							progress:true,
 							child:[
 								{
-									num:'3',
-									num_color:'orange',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
 										'Tuna',
 										'Without tomato sauce',
 									],
-								},
-								{
-									num:'1',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna',
-										'Without tomato sauce',
-									]
-								},
-								{
-									num:'1',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna',
-										'Without tomato sauce',
-									]
 								},
 							]
 						},
 						{
-							title:'2102',
+							title:'102',
+							count:'2/3',
 							name:'Guest',
-							order_time:'1h ago',
-							status:'Delivery',
-							status_icon:'ic-pen',
-							status_icon_width:'13',
-							status_icon_height:'18',
+							order_time:'28m ago',
+							status:'TA',
+							status_icon:'ic-bell',
+							status_icon_width:'16',
+							status_icon_height:'16',
 							child:[
 								{
-									num:'3',
-									num_color:'orange',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna'
-									],
-									note:'Note: Without tomato sauce',
-								},
-								{
-									num:'1',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
 										'Tuna',
-										'Mushrooms',
-									]
-								},
-								{
-									num:'1',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna',
-										'Cheese',
-										'Sauces',
 										'Without tomato sauce',
-									]
+									],
 								},
 							],
-							child_blur:true,
-							pager:'1/4',
 							btn_color:'orange'
 						},
 						{
-							title:'2103',
+							title:'102',
+							count:'3/3',
 							name:'Guest',
-							order_time:'1h ago',
-							status:'Delivery',
-							status_icon:'ic-pen',
-							status_icon_width:'13',
-							status_icon_height:'18',
+							order_time:'28m ago',
+							status:'TA',
+							status_icon:'ic-bell',
+							status_icon_width:'16',
+							status_icon_height:'16',
 							child:[
 								{
-									num:'3',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
 										'Tuna',
 										'Without tomato sauce',
 									],
-									note:'Note: Without tomato sauce',
+									note:'Note: This is private party!',
 								},
 							],
 							btn_color:'orange',
-							child_blur:true,
 						},
 						{
-							title:'2104',
+							title:'103',
 							name:'Albert',
 							order_time:'1h ago',
 							status:'Delivery',
@@ -181,22 +116,21 @@ block content
 							status_icon_height:'18',
 							child:[
 								{
-									num:'3',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
-										'Tuna'
+										'Tuna',
+										'Without tomato sauce',
 									],
-									note:'Note: Without tomato sauce',
 								},
 							],
 							btn_status:'disable',
 							btn_color:'orange',
-							child_blur:true,
+							disable:true,
 						},
 					]
 				each item in list
-					.order-card
+					.order-card(class=item.disable?'disable':'')
 						if(item.vip)
 							.order-card__vip
 								+svg('ic-crown','ic-crown', '24', '24')
@@ -208,6 +142,9 @@ block content
 										+svg('ic-tableware','ic-tableware', '30', '30')
 								
 								.order-card__title= item.title
+
+								if(item.count)
+									.order-card__count= item.count
 
 							.order-card__name-wrap
 								.order-card__name= item.name
@@ -240,7 +177,8 @@ block content
 							each child in item.child
 								.order-card-item
 									.order-card-item__head
-										.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
+										if(child.num_color)
+											.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
 										.order-card-item__title= child.title
 
 									.order-card-item__list
