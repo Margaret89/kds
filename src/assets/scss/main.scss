@@ -10,5 +10,9 @@
 @import "utils/fonts";
 @import "utils/reset";
 
-@import "layouts/*";
-@import "components/*";
+@import "layouts/main";
+@import "components/icons";
+@import "components/type-icon";
+@import "components/splash";
+@import "components/progress";
+@import "components/registration";

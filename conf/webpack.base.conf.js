@@ -17,7 +17,7 @@ const PATHS = {
   fonts: 'assets/fonts',
   img: 'assets/img',
   sprites:'assets/sprites/',
-  svgicon:'../src/assets/svg-icon/',
+  svgicon:'../src/assets/svg-icon/', 
   svgcoloricon:'../src/assets/svg-color-icon/',
 }
 
@@ -150,7 +150,7 @@ module.exports = {
           loader: 'sass-loader',
           options: { 
             sourceMap: true,
-            importer: globImporter()
+            // importer: globImporter()
           }
         }
       ]

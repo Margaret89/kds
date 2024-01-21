@@ -11,7 +11,7 @@
 	// --color-link-hover: var(--color-text);
 	// // --color-link-active: var(--color-semi-gold);
 
-	// --color-danger: #E01E1E;
+	--color-danger: #FF4762;
 	// --margin-indent: 140px;
 	// --bg-grey: #F2F2F2;
 }
@@ -103,10 +103,12 @@ button.btn{
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	gap: 10px;
 	height: 6.6rem;
 	min-width: 200px;
 	background: var(--color-primary);
 	border: none;
+	border-radius: 2rem;
 	@include font(normal, 600, 2rem, 1.2, #fff);
 	text-decoration: none;
 	text-align: center;
@@ -115,11 +117,44 @@ button.btn{
 	transition: all 0.2s ease 0s;
 
 	&:hover{background: var(--color-primary-hover);}
-	&.disable{background: var(--color-primary-disable);}
+	
+	&.disable{
+		background: var(--color-primary-disable);
+		cursor: auto;
+	}
 
 	&_green{background: var(--color-second);}
 	&_green:hover{background: var(--color-second-hover);}
 	&_green.disable{background: var(--color-second-disable);}
+}
+
+.btn-back{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 17px;
+	height: 7.4rem;
+	background: rgba(31, 36, 44, 0.08); 
+	border: none;
+	border-radius: 3.7rem;
+	@include font(normal, 600, 2rem, 1.2, var(--color-text));
+	text-decoration: none;
+	text-align: center;
+	padding: 0 30px;
+	cursor: pointer;
+	transition: all 0.2s ease 0s;
+
+	.icon{
+		fill: var(--color-text);
+		transition: fill 0.2s ease 0s;
+	}
+
+	&:hover{
+		background: var(--color-primary);
+		color: #fff;
+
+		.icon{fill: #fff;}
+	}
 }
 
 .code{
@@ -138,3 +173,14 @@ button.btn{
 .text-justify{text-align: justify !important;}
 .text-uppercase{text-transform: uppercase !important;}
 .text-bold {font-weight: 700 !important;}
+
+@media (max-width: 991px) {
+	.btn-back{
+		height: 6rem;
+		border-radius: 3rem;
+		gap: 10px;
+		font-size: 1.6rem;
+
+		.ic-undo{max-width: 24px;}
+	}
+}

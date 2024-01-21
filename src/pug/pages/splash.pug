@@ -1,22 +1,11 @@
 extends ../layout/main
 
 block variables
-	- var title = 'Content';
-	- 
-		var pagelist = [
-			{href: 'splash.html',name:'Splash with loading'},
-			{href: 'tipografika.html',name:'Типографика'},
-		];
+	- var title = 'Splash with loading';
 
 block content
-	section
-		.container
-			.row
-				.col-12
-					h1 Content
-					ul
-						each page in pagelist
-							li
-								a(href=page.href, target="_blank")= page.name
+	.splash
+		img(src="assets/img/logo.svg", alt="")
 
-
+		.progress
+			.progress__content

@@ -1,0 +1,50 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Splash registration';
+
+block content
+	.registration
+		.registration__img
+			img(src="assets/img/screensaver.jpg", alt="")
+
+		.registration__content
+			.btn-back
+				+svg('ic-undo','ic-undo', '28', '22')
+				|Back
+
+			form.registration__form
+				.registration__logo
+					img(src="assets/img/logo-short.svg", alt="")
+
+				.registration__title One-time Password
+				.registration__text Please type your password
+
+				.registration__field
+					input(type="password", value="123456")
+
+				.keyboards
+					.keyboards__item 1
+					.keyboards__item 2
+					.keyboards__item 3
+					.keyboards__item 4
+					.keyboards__item 5
+					.keyboards__item 6
+					.keyboards__item 7
+					.keyboards__item 8
+					.keyboards__item 9
+					.keyboards__item 0
+					.keyboards__item.keyboards__item_grey
+						+svg('ic-clear','ic-clear', '25', '20')
+
+				.registration__btn
+					.btn Login
+
+			.registration__sign
+				img(src="assets/img/logo-small.svg", alt="")
+
+	.splash
+		img(src="assets/img/logo.svg", alt="")
+
+		.progress
+			.progress__content
