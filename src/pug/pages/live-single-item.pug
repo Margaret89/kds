@@ -173,20 +173,21 @@ block content
 							if(item.progress)
 								.order-card__progress(class=item.header_color?'order-card__progress_'+item.header_color:'')
 
-						.order-card__content(class=item.child_blur?'order-card__content_blur':'')
-							each child in item.child
-								.order-card-item
-									.order-card-item__head
-										if(child.num_color)
-											.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
-										.order-card-item__title= child.title
+						.order-card__content
+							.order-card__list(class=item.child_blur?'order-card__content_blur':'')
+								each child in item.child
+									.order-card-item
+										.order-card-item__head
+											if(child.num_color)
+												.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
+											.order-card-item__title= child.title
 
-									.order-card-item__list
-										each val in child.list
-											.order-card-item__val= val
+										.order-card-item__list
+											each val in child.list
+												.order-card-item__val= val
 
-									if(child.note)
-										.msg.msg_red= child.note
+										if(child.note)
+											.msg.msg_red= child.note
 
 						if(item.pager)
 							.order-card-nav

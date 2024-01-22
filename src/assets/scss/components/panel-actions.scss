@@ -3,6 +3,8 @@
 	display: flex;
 	justify-content: space-between;
 	gap: 20px;
+	flex-shrink: 0;
+	padding: 0 46px 37px;
 }
 
 .panel-data{

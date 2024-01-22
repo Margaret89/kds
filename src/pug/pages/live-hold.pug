@@ -28,7 +28,6 @@ block content
 							child:[
 								{
 									num:'3',
-									num_color:'orange',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
@@ -57,7 +56,7 @@ block content
 									]
 								},
 							],
-							pager:'3/6',
+							pager:'1/2',
 							btn_status:'disable'
 						},
 						{
@@ -83,6 +82,7 @@ block content
 										'Tuna',
 										'Without tomato sauce',
 									],
+									hold: true,
 								},
 								{
 									num:'1',
@@ -146,11 +146,14 @@ block content
 							],
 							child_blur:true,
 							pager:'1/4',
-							btn_color:'orange'
+							btn_color:'orange',
+							note:'Wolt #3002',
 						},
 						{
 							title:'2103',
 							name:'Guest',
+							tag:'Future order',
+							tag_color:'purple',
 							order_time:'1h ago',
 							status:'Delivery',
 							status_icon:'ic-pen',
@@ -170,6 +173,8 @@ block content
 							],
 							btn_color:'orange',
 							child_blur:true,
+							note:'Wolt #3002',
+							timer:'Today at 18:30'
 						},
 						{
 							title:'2104',
@@ -237,9 +242,17 @@ block content
 								.order-card__progress(class=item.header_color?'order-card__progress_'+item.header_color:'')
 
 						.order-card__content
-							.order-card__list(class=item.child_blur?'order-card__content_blur':'')
+							if(item.note)
+								.order-card__note= item.note
+
+							if(item.timer)
+								.order-card__timer
+									+svg('ic-clock','ic-clock', '19', '19')
+									=item.timer
+
+							.order-card__list(class=item.child_blur?'order-card__list_blur':'')
 								each child in item.child
-									.order-card-item
+									.order-card-item(class=child.hold?'hold':'')
 										.order-card-item__head
 											.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
 											.order-card-item__title= child.title

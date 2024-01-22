@@ -3,9 +3,9 @@
 	display: flex;
 	gap: 25px;
 	height: 100%;
-	padding-bottom: 46px;
-	margin-right: -46px;
-	padding-right: 48px;
+	padding: 0 48px 51px;
+	margin-right: -48px;
+	margin-left: -48px;
 	overflow-x: auto;
 	overflow-y: hidden
 }
@@ -108,6 +108,7 @@
 		color: #fff;
 
 		&_blue{background: #3E74FF;}
+		&_purple{background: #933EFF;}
 	}
 
 	&__info{
@@ -136,7 +137,20 @@
 	}
 
 	&__content{
+		display: flex;
+		flex-direction: column;
+		max-height: 100%;
+		overflow-y: hidden;
+		margin: -8px;
+		padding: 8px;
+	}
+
+	&__list{
+		max-height: calc(100% + 16px);
+		overflow-y: auto;
 		position: relative;
+		margin: -8px;
+		padding: 8px;
 
 		&_blur::after{
 			content: '';
@@ -147,6 +161,35 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+		}
+	}
+
+	&__note{
+		background: #F4F6FA;
+		padding: 10px;
+		border-bottom: 1px solid #E5E7EB;
+		font-size: 1.6rem;
+		font-weight: 500;
+		color: #E5E7EB;
+		text-align: center;
+	}
+
+	&__timer{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		background: rgba(147, 62, 255, 0.12);
+		padding: 10px;
+		border-bottom: 1px solid #E5E7EB;
+		font-size: 1.6rem;
+		font-weight: 500;
+		color: #933EFF;
+		text-align: center;
+
+		.icon{
+			flex-shrink: 0;
+			fill: #933EFF;
 		}
 	}
 
@@ -208,12 +251,30 @@
 .order-card-item{
 	padding: 25px 32px;
 	border-bottom: 1px solid #E5E7EB;
+	position: relative;
+
+	&::before{
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: #fff;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: all 0.2s ease 0s;
+	}
 
 	&__head{
 		display: flex;
 		gap: 8px;
 		margin-bottom: 10px;
+		position: relative;
 	}
+
+	&__list{position: relative;}
 
 	&__num{
 		flex-shrink: 0;
@@ -239,6 +300,23 @@
 
 	&__val{font-size: 1.6rem;}
 	.msg{margin-top: 3px;}
+
+	&.hold::before{
+		width: calc(100% + 16px);
+		height: calc(100% + 16px);
+		border-radius: 16px;
+		background: rgba(230,255,245,1);
+		background: -moz-linear-gradient(left, rgba(230,255,245,1) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+		background: -webkit-gradient(left top, right top, color-stop(0%, rgba(230,255,245,1)), color-stop(54%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+		background: -webkit-linear-gradient(left, rgba(230,255,245,1) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+		background: -o-linear-gradient(left, rgba(230,255,245,1) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+		background: -ms-linear-gradient(left, rgba(230,255,245,1) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+		background: linear-gradient(to right, rgba(230,255,245,1) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6fff5', endColorstr='#ffffff', GradientType=1 );
+		border: 1px solid #E5E7EB;
+		box-shadow: 0px 44px 32px -30px rgba(207, 207, 207, 0.30);
+		opacity: 1;
+	}
 }
 
 .order-card-nav{
