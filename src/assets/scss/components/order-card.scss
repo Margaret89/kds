@@ -301,6 +301,26 @@
 	&__val{font-size: 1.6rem;}
 	.msg{margin-top: 3px;}
 
+	&__tag{
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		padding: 1px 8px 2px;
+		border-radius: 6px;
+		background: var(--color-second);
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: #fff;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+
+		.icon{
+			flex-shrink: 0;
+			fill: #fff;
+		}
+	}
+
 	&.hold::before{
 		width: calc(100% + 16px);
 		height: calc(100% + 16px);
@@ -317,6 +337,8 @@
 		box-shadow: 0px 44px 32px -30px rgba(207, 207, 207, 0.30);
 		opacity: 1;
 	}
+
+	&.active{background: #E6FFF5;}
 }
 
 .order-card-nav{
