@@ -131,6 +131,9 @@ block content
 					]
 				each item in list
 					.order-card(class=item.disable?'disable':'')
+						.order-card__border
+						.order-card__bg
+						
 						if(item.vip)
 							.order-card__vip
 								+svg('ic-crown','ic-crown', '24', '24')

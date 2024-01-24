@@ -176,7 +176,16 @@ block content
 						},
 					]
 				each item in list
-					.order-card(class=item.disable?'disable':'', class=item.status_card?'.order-card_'+item.status_card:'')
+					.order-card(class=item.disable?'disable':'', class=item.status_card?'order-card_'+item.status_card:'')
+						.order-card__border
+						.order-card__shadow-down
+						.order-card__shadow-up
+						.order-card__bg
+
+
+						if(item.status_card == 'hurry_up')
+							.order-card__label Hurry up
+
 						if(item.vip)
 							.order-card__vip
 								+svg('ic-crown','ic-crown', '24', '24')
