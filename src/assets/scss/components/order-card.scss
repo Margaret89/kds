@@ -28,6 +28,7 @@
 		top: 0;
 		left: 0;
 		z-index: -1;
+		transition: all 0.3s ease 0s;
 	}
 
 	&__border{
@@ -87,6 +88,7 @@
 		padding: 15px 26px 18px 18px;
 		position: relative;
 		border-bottom: 1px solid #E5E7EB;
+		transition: all 0.3s ease 0s;
 	}
 
 	&__head{
@@ -178,6 +180,7 @@
 		overflow-y: hidden;
 		margin: -8px;
 		padding: 8px;
+		transition: all 0.3s ease 0s;
 	}
 
 	&__list{
@@ -256,6 +259,15 @@
 		z-index: 2;
 	}
 
+	&__del{
+		display: none;
+		position: absolute;
+		top: 38px;
+		right: 30px;
+
+		.icon{fill: var(--color-danger);}
+	}
+
 	&.disable{opacity: 0.4;}
 
 	&_danger &__border{
@@ -301,6 +313,40 @@
 		animation: border-pulse-up 2s ease 0s infinite;
 		animation-fill-mode: forwards;
 	}
+
+	&.delete .btn-circle{display: none;}
+
+	&.delete &__bg{
+		width: calc(100% + 30px);
+		height: calc(100% + 30px);
+		clip-path: none;
+		border-radius: 25px;
+		border: 1px solid #E5E7EB;
+		// margin: -15px;
+		// position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		// z-index: -1;
+	}
+	
+	&.delete &__border{display: none;}
+		
+	&.delete &__content{
+		margin-left: -23px;
+		margin-right: -23px;
+		padding-left: 23px;
+		padding-right: 23px;
+	}
+
+	&.delete &__top{
+		margin: -15px -15px 0;
+		padding: 30px 41px 18px 33px;
+		background: linear-gradient(to right, rgba(255,226,231,1) 0%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 100%);
+		border-radius: 25px 25px 0 0;
+	}
+
+	&.delete &__del{display: block;}
 }
 
 .order-card-info-list{
