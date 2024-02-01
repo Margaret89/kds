@@ -244,6 +244,9 @@ button.btn{
 			}
 		}
 	}
+
+	&.sidebar-open .order-card-list{padding-right: 675px;}
+	&.sidebar-open .sidebar{right: 0;}
 }
 
 .main{

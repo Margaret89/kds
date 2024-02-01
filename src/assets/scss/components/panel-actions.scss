@@ -5,6 +5,8 @@
 	gap: 20px;
 	flex-shrink: 0;
 	padding: 0 46px 37px;
+	position: relative;
+	z-index: 150;
 }
 
 .panel-data{
