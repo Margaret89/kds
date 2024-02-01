@@ -322,12 +322,9 @@
 		clip-path: none;
 		border-radius: 25px;
 		border: 1px solid #E5E7EB;
-		// margin: -15px;
-		// position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		// z-index: -1;
 	}
 	
 	&.delete &__border{display: none;}
@@ -347,6 +344,14 @@
 	}
 
 	&.delete &__del{display: block;}
+
+	&_no-clip &__bg{
+		clip-path: none;
+		border-radius: 25px;
+		border: 1px solid #E5E7EB;
+	}
+
+	&_no-clip &__border{display: none;}
 }
 
 .order-card-info-list{
