@@ -400,6 +400,11 @@
 		font-size: 1.8rem;
 		font-weight: 600;
 	}
+
+	&_green{
+		color: var(--color-second);
+		.icon{fill: var(--color-second);}
+	}
 }
 
 .order-card-item{
@@ -545,6 +550,32 @@
 		color: #fff;
 		margin-top: -28px;
 	}
+}
+
+.order-card-status{
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	height: 2.2rem;
+	border-radius: 6px;
+	background: var(--color-second);
+	padding: 0 10px;
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	position: absolute;
+	top: 27px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+
+	.icon{
+		fill: #fff;
+		flex-shrink: 0;
+	}
+
+	&_red{background: var(--color-danger);}
 }
 
 @keyframes progress-card {
