@@ -486,7 +486,19 @@
 		}
 	}
 
-	.msg{margin-top: 3px;}
+	&__msg{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 5px;
+		margin-top: 20px;
+	}
+
+	&__edit-time{
+		font-size: 1.2rem;
+		line-height: 1;
+		color: #9EABC1;
+	}
 
 	&__tag{
 		display: inline-flex;

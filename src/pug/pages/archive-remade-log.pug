@@ -13,13 +13,13 @@ block content
 							vip: true,
 							title:'117',
 							name:'Osher',
-							tag:'New',
-							tag_color:'blue',
 							order_time:'28m ago',
 							status:'Delivery',
 							status_icon:'ic-pen',
 							status_icon_width:'13',
 							status_icon_height:'18',
+							time:'00:12:39',
+							time_green:true,
 							child:[
 								{
 									title:'Pizza Margarita',
@@ -28,7 +28,6 @@ block content
 										'Tuna',
 										'Without tomato sauce',
 									],
-									active: true,
 								},
 								{
 									title:'Pizza Margarita',
@@ -50,16 +49,18 @@ block content
 								},
 							],
 							pager:'3/6',
-							disable:true,
+							order_status:'done',
 						},
 						{
 							title:'118',
 							name:'Mike',
-							order_time:'28m ago',
+							order_time:'10:33',
 							status:'TA',
 							status_icon:'ic-pen',
 							status_icon_width:'13',
 							status_icon_height:'18',
+							time:'00:12:39',
+							time_green:true,
 							child:[
 								{
 									title:'Pizza Margarita',
@@ -68,7 +69,6 @@ block content
 										'Tuna',
 										'Without tomato sauce',
 									],
-									active: true,
 								},
 								{
 									title:'Pizza Margarita',
@@ -87,7 +87,7 @@ block content
 									]
 								},
 							],
-							disable:true,
+							order_status:'done',
 						},
 						{
 							title:'119',
@@ -104,10 +104,13 @@ block content
 										'Olives',
 										'Tuna',
 										'Without tomato sauce',
-									]
+									],
+									note:'Remade by John Snow',
+									note_color:'blue',
+									edit_time:'12:35',
 								},
 							],
-							selected: true,
+							order_status:'canceled',
 						},
 						{
 							title:'120',
@@ -128,7 +131,7 @@ block content
 									note:'Note: This is private party!',
 								},
 							],
-							selected: true,
+							order_status:'canceled',
 						},
 						{
 							title:'121',
@@ -149,10 +152,11 @@ block content
 								},
 							],
 							disable:true,
+							order_status:'canceled',
 						},
 					]
 				each item in list
-					.order-card.order-card_no-clip(class=item.disable?'disable':'', class=item.selected?'selected':'')
+					.order-card.order-card_no-clip(class=item.disable?'disable':'', class=item.del?'delete':'')
 						.order-card__border
 						.order-card__bg
 						
@@ -161,6 +165,16 @@ block content
 								+svg('ic-crown','ic-crown', '24', '24')
 
 						.order-card__top
+							if(item.order_status == 'done')
+								.order-card-status
+									+svg('ic-check','ic-check', '10', '7')
+									|Done
+
+							if(item.order_status == 'canceled')
+								.order-card-status.order-card-status_red
+									+svg('ic-close','ic-close', '10', '10')
+									|Canceled
+
 							.order-card__head
 								if(item.icon)
 									.order-card__head-icon
@@ -187,7 +201,7 @@ block content
 										span.order-card-info-item__text= item.status
 
 								if(item.time)
-									.order-card-time
+									.order-card-time(class=item.time_green?'order-card-time_green':'')
 										span.order-card-time__icon
 											+svg('ic-clock','ic-clock', '19', '19')
 										span.order-card-time__val= item.time
@@ -226,8 +240,12 @@ block content
 												.order-card-item__val= val
 
 										.order-card-item__msg
-											if(child.note)
+											if(child.note_color=='blue')
+												.msg.msg_blue= child.note
+											else if(child.note)
 												.msg.msg_red= child.note
+
+											.order-card-item__edit-time= child.edit_time
 
 						if(item.pager)
 							.order-card-nav
@@ -246,7 +264,7 @@ block content
 						//- 		+svg('ic-check','ic-check', '29', '21')
 
 		.panel-actions
-			.panel-data.disable
+			.panel-data
 				.panel-data__content
 					.panel-data__img
 						img(src="assets/img/logo-short-white.svg", alt="")
@@ -259,31 +277,24 @@ block content
 					.panel-data__time 17:30
 					.panel-data__date 29 Sep, 2023
 
-			.panel-select
-				.panel-select__info
-					.panel-select__num 2
-					.panel-select__label Orders
-						br
-						|selected
+			.panel-actions-btn
+				.panel-actions-btn__arr.disable
+					+svg('ic-arrow-left','ic-arrow-left', '48', '48')
 
-				.panel-select__actions
-					.panel-select__arr.disable
-						+svg('ic-arrow-left','ic-arrow-left', '48', '48')
+				.panel-actions-btn__list
+					.panel-actions-btn__item
+						+svg('ic-note','ic-note', '38', '38')
 
-					.panel-select__list
-						.panel-select__item
-							+svg('ic-rotate','ic-rotate', '30', '34')
+					.panel-actions-btn__item
+						+svg('ic-trash','ic-trash', '31', '34')
 
-						.panel-select__item.panel-select__item_red
-							+svg('ic-trash','ic-trash', '31', '34')
+					.panel-actions-btn__item.active
+						+svg('ic-archive','ic-archive', '38', '38')
 
-					.panel-select__arr
-						+svg('ic-arrow-right','ic-arrow-right', '48', '48')
+				.panel-actions-btn__arr
+					+svg('ic-arrow-right','ic-arrow-right', '48', '48')
 
-				.panel-select__close
-					+svg('ic-close','ic-close', '20', '20')
-
-			.panel-actions-btn.disable
+			.panel-actions-btn
 				.panel-actions-btn__sect
 					.panel-actions-btn__item
 						+svg('ic-moon','ic-moon', '34', '34')
@@ -298,3 +309,4 @@ block content
 					.panel-actions-btn__item
 						+svg('ic-setting','ic-setting', '34', '32')
 					
+				
