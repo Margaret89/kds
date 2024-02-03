@@ -146,6 +146,11 @@
 
 		&_blue{background: #3E74FF;}
 		&_purple{background: #933EFF;}
+
+		&_grey{
+			background: #F4F6FA;
+			color: #67707B;
+		}
 	}
 
 	&__info{
@@ -518,6 +523,14 @@
 			flex-shrink: 0;
 			fill: #fff;
 		}
+	}
+
+	&__check{
+		position: absolute;
+		top: 26px;
+		right: 34px;
+
+		.icon{fill: var(--color-second);}
 	}
 
 	&.hold::before{

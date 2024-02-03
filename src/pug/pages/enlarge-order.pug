@@ -1,0 +1,357 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Enlarge order';
+
+block content
+	.enlarge-order-wrap
+		.enlarge-order-panel.enlarge-order-panel_danger
+			.enlarge-order-panel__label Late
+
+			.enlarge-order-panel__info
+				.enlarge-order-panel__title 101
+
+				.enlarge-order-panel__name-wrap
+					.enlarge-order-panel__name Osher
+					.enlarge-order-panel__tag.enlarge-order-panel__tag_blue New
+					.enlarge-order-panel__tag.enlarge-order-panel__tag_grey Wolt #3002
+
+			.enlarge-order-panel__data
+				.enlarge-order-panel-time
+					.enlarge-order-panel-time__icon
+						+svg('ic-clock','ic-clock', '26', '26')
+					.enlarge-order-panel-time__text 00:12:39
+
+				.enlarge-order-panel-list
+					.enlarge-order-panel-item
+						.enlarge-order-panel-item__icon
+							+svg('ic-login','ic-login', '22', '22')
+						.enlarge-order-panel-item__text 28m ago
+
+					.enlarge-order-panel-item
+						.enlarge-order-panel-item__icon
+							+svg('ic-pen','ic-pen', '18', '25')
+						.enlarge-order-panel-item__text Delivery
+
+			.enlarge-order-panel__close
+				+svg('ic-close','ic-close', '20', '20')
+
+		.enlarge-order-list
+			.enlarge-order-list__content
+				-
+					var list=[
+						{
+							num:'3',
+							num_color:'orange',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+							],
+							note:'Note: Without tomato sauce',
+							active: true,
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Mushrooms'},
+							],
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Cheese'},
+								{text:'Sauces'},
+								{text:'Without tomato sauce'},
+							]
+						},
+						{
+							num:'3',
+							num_color:'orange',
+							title:'Pizza Margarita',
+							list:[
+								{
+									icon:'ic-circle',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Green Olives',
+								},
+								{
+									icon:'ic-circle-half-right',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Tuna',
+								},
+								{
+									icon:'ic-circle-half-left',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Extra cheese',
+								},
+								{
+									icon:'ic-circle-quarter-3_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Mushrooms',
+								},
+								{
+									icon:'ic-circle-quarter-4_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Black Olives',
+								},
+								{
+									icon:'ic-circle-quarter-1_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Corn',
+								},
+								{
+									icon:'ic-circle-quarter-2_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Onion',
+								},
+								{text:'Coca-cola 1.5L',},
+								{text:'Garlic sauce',},
+								{text:'Chipotle sauce',},
+							],
+							note:'Note: Without tomato sauce',
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Cheese'},
+								{text:'Sauces'},
+								{text:'Without tomato sauce'},
+							],
+							hold: true,
+						},
+						{
+							num:'3',
+							num_color:'orange',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+							],
+							note:'Note: Without tomato sauce',
+							active: true,
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Mushrooms'},
+							],
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Cheese'},
+								{text:'Sauces'},
+								{text:'Without tomato sauce'},
+							]
+						},
+						{
+							num:'3',
+							num_color:'orange',
+							title:'Pizza Margarita',
+							list:[
+								{
+									icon:'ic-circle',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Green Olives',
+								},
+								{
+									icon:'ic-circle-half-right',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Tuna',
+								},
+								{
+									icon:'ic-circle-half-left',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Extra cheese',
+								},
+								{
+									icon:'ic-circle-quarter-3_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Mushrooms',
+								},
+								{
+									icon:'ic-circle-quarter-4_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Black Olives',
+								},
+								{
+									icon:'ic-circle-quarter-1_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Corn',
+								},
+								{
+									icon:'ic-circle-quarter-2_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Onion',
+								},
+								{text:'Coca-cola 1.5L',},
+								{text:'Garlic sauce',},
+								{text:'Chipotle sauce',},
+							],
+							note:'Note: Without tomato sauce',
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Cheese'},
+								{text:'Sauces'},
+								{text:'Without tomato sauce'},
+							],
+						},
+						{
+							num:'3',
+							num_color:'orange',
+							title:'Pizza Margarita',
+							list:[
+								{
+									icon:'ic-circle',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Green Olives',
+								},
+								{
+									icon:'ic-circle-half-right',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Tuna',
+								},
+								{
+									icon:'ic-circle-half-left',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Extra cheese',
+								},
+								{
+									icon:'ic-circle-quarter-3_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Mushrooms',
+								},
+								{
+									icon:'ic-circle-quarter-4_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Black Olives',
+								},
+								{
+									icon:'ic-circle-quarter-1_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Corn',
+								},
+								{
+									icon:'ic-circle-quarter-2_4',
+									icon_width:'18',
+									icon_height:'18',
+									text:'Onion',
+								},
+								{text:'Coca-cola 1.5L',},
+								{text:'Garlic sauce',},
+								{text:'Chipotle sauce',},
+							],
+							note:'Note: Without tomato sauce',
+							disable: true,
+						},
+						{
+							num:'1',
+							title:'Pizza Margarita',
+							list:[
+								{text:'Olives'},
+								{text:'Tuna'},
+								{text:'Cheese'},
+								{text:'Sauces'},
+								{text:'Without tomato sauce'},
+							],
+							disable: true,
+						},
+					]
+				each item in list
+					.order-card-item(class=item.disable?'disable':'', class=item.active?'active':'', class=item.hold?'hold':'')
+						if(item.active)
+							.order-card-item__tag
+								+svg('ic-check','ic-check', '11', '8')
+								|Done
+
+						.order-card-item__head
+							if(item.num)
+								.order-card-item__num(class=item.num_color?'order-card-item__num_'+item.num_color:'')= item.num
+							
+							.order-card-item__title= item.title
+							
+						.order-card-item__list
+							each val in item.list
+								.order-card-item__val
+									if(val.icon)
+										+svg(val.icon, val.icon, val.icon_width, val.icon_height)
+									= val.text
+
+						if(item.note)
+							.order-card-item__msg
+								.msg.msg_red= item.note
+								
+						if(item.hold)
+							.order-card-item__check
+								+svg('ic-check','ic-check', '19', '14')
+		.panel-actions
+			.panel-activity
+				.btn.btn_grey
+					+svg('ic-receipt','ic-receipt', '32', '32')
+					|Print
+
+				.btn.btn_grey
+					+svg('ic-note','ic-note', '32', '32')
+					|Stickers
+
+			.panel-control
+				.panel-control__arr.disable
+					+svg('ic-arrow-left','ic-arrow-left', '48', '48')
+
+				.panel-control__list
+					.panel-control__item
+						+svg('ic-check','ic-check', '29', '21')
+
+					.panel-control__item.panel-control__item_red
+						+svg('ic-trash','ic-trash', '31', '34')
+
+				.panel-control__arr
+					+svg('ic-arrow-right','ic-arrow-right', '48', '48')
+
+			.panel-time
+				.panel-time__label Future order
+
+				.panel-time__text
+					+svg('ic-clock','ic-clock', '25', '25')
+					|Today at 18:30

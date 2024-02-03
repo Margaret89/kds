@@ -132,16 +132,22 @@ button.btn{
 	&_grey{
 		background: var(--color-grey);
 		color: var(--color-text);
+
+		.icon{fill: var(--color-text);}
 	}
 
 	&_grey:hover{
 		background: var(--color-primary);
 		color: #fff;
+
+		.icon{fill: #fff;}
 	}
 
 	&_grey.disable{
 		background: var(--color-grey);
 		color: var(--color-text);
+
+		.icon{fill: var(--color-text);}
 	}
 
 	&_opacity{background: rgba(255, 255, 255, 0.23);}

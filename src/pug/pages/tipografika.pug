@@ -1,8 +1,8 @@
 extends ../layout/main
 
 block variables
-	- var title = 'Типографика';
-	- var h1 = 'Типографика';
+	- var title = 'Typography';
+	- var h1 = 'Typography';
 
 block content
 	section(style="padding: 40px")
@@ -125,6 +125,11 @@ block content
 				.type-icon__img
 					+svg('ic-login','ic-login', '22', '22')
 				.type-icon__name ic-login
+
+			.type-icon__item
+				.type-icon__img
+					+svg('ic-pen','ic-pen', '13', '18')
+				.type-icon__name ic-pen
 
 			.type-icon__item
 				.type-icon__img
@@ -265,4 +270,9 @@ block content
 				.type-icon__img
 					+svg('ic-refresh','ic-refresh', '26', '26')
 				.type-icon__name ic-refresh
+
+			.type-icon__item
+				.type-icon__img
+					+svg('ic-receipt','ic-receipt', '32', '32')
+				.type-icon__name ic-receipt
 			

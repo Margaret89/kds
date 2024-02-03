@@ -268,6 +268,10 @@ block content
 											.order-card-item__msg
 												.msg.msg_red= child.note
 
+										if(child.hold)
+											.order-card-item__check
+												+svg('ic-check','ic-check', '19', '14')
+
 						if(item.pager)
 							.order-card-nav
 								.order-card-nav__arr.disable
