@@ -189,8 +189,8 @@ block content
 											each val in child.list
 												.order-card-item__val= val
 
-										.order-card-item__msg
-											if(child.note)
+										if(child.note)
+											.order-card-item__msg
 												.msg.msg_red= child.note
 
 						if(item.pager)

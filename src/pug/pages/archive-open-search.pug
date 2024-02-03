@@ -4,49 +4,40 @@ block variables
 	- var title = 'Live';
 
 block content
-	.wrapper.wrapper_dark
+	.wrapper
 		main.main
 			.order-card-list
 				-
 					var list=[
 						{
 							vip: true,
-							icon:'ic-tableware',
-							icon_width:'30',
-							icon_height:'30',
-							title:'12',
+							title:'117',
 							name:'Osher',
-							tag:'Waiter',
 							order_time:'28m ago',
-							status:'Dine in',
-							status_icon:'ic-bell',
-							status_icon_width:'16',
-							status_icon_height:'16',
+							status:'Delivery',
+							status_icon:'ic-pen',
+							status_icon_width:'13',
+							status_icon_height:'18',
 							time:'00:12:39',
-							header_color:'orange',
-							progress:true,
+							time_green:true,
 							child:[
 								{
-									num:'3',
-									num_color:'orange',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna'
-									],
-									note:'Note: Without tomato sauce',
-								},
-								{
-									num:'1',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
 										'Tuna',
-										'Mushrooms',
-									]
+										'Without tomato sauce',
+									],
 								},
 								{
-									num:'1',
+									title:'Pizza Margarita',
+									list:[
+										'Olives',
+										'Tuna',
+										'Without tomato sauce'
+									],
+								},
+								{
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
@@ -58,25 +49,20 @@ block content
 								},
 							],
 							pager:'3/6',
-							btn_status:'disable'
+							order_status:'done',
 						},
 						{
-							title:'2101',
+							title:'118',
 							name:'Mike',
-							tag:'New',
-							tag_color:'blue',
-							order_time:'28m ago',
+							order_time:'10:33',
 							status:'TA',
 							status_icon:'ic-pen',
 							status_icon_width:'13',
 							status_icon_height:'18',
 							time:'00:12:39',
-							header_color:'green',
-							progress:true,
+							time_green:true,
 							child:[
 								{
-									num:'3',
-									num_color:'orange',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
@@ -85,7 +71,6 @@ block content
 									],
 								},
 								{
-									num:'1',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
@@ -94,7 +79,6 @@ block content
 									]
 								},
 								{
-									num:'1',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
@@ -102,10 +86,11 @@ block content
 										'Without tomato sauce',
 									]
 								},
-							]
+							],
+							order_status:'done',
 						},
 						{
-							title:'2102',
+							title:'119',
 							name:'Guest',
 							order_time:'1h ago',
 							status:'Delivery',
@@ -114,42 +99,18 @@ block content
 							status_icon_height:'18',
 							child:[
 								{
-									num:'3',
-									num_color:'orange',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna'
-									],
-									note:'Note: Without tomato sauce',
-								},
-								{
-									num:'1',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
 										'Tuna',
-										'Mushrooms',
-									]
-								},
-								{
-									num:'1',
-									title:'Pizza Margarita',
-									list:[
-										'Olives',
-										'Tuna',
-										'Cheese',
-										'Sauces',
 										'Without tomato sauce',
 									]
 								},
 							],
-							child_blur:true,
-							pager:'1/4',
-							btn_color:'orange'
+							order_status:'canceled',
 						},
 						{
-							title:'2103',
+							title:'211',
 							name:'Guest',
 							order_time:'1h ago',
 							status:'Delivery',
@@ -158,21 +119,19 @@ block content
 							status_icon_height:'18',
 							child:[
 								{
-									num:'3',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
 										'Tuna',
 										'Without tomato sauce',
 									],
-									note:'Note: Without tomato sauce',
+									note:'Note: This is private party!',
 								},
 							],
-							btn_color:'orange',
-							child_blur:true,
+							order_status:'canceled',
 						},
 						{
-							title:'2104',
+							title:'311',
 							name:'Albert',
 							order_time:'1h ago',
 							status:'Delivery',
@@ -181,22 +140,20 @@ block content
 							status_icon_height:'18',
 							child:[
 								{
-									num:'3',
 									title:'Pizza Margarita',
 									list:[
 										'Olives',
-										'Tuna'
+										'Tuna',
+										'Without tomato sauce',
 									],
-									note:'Note: Without tomato sauce',
 								},
 							],
-							btn_status:'disable',
-							btn_color:'orange',
-							child_blur:true,
+							disable:true,
+							order_status:'canceled',
 						},
 					]
 				each item in list
-					.order-card
+					.order-card.order-card_no-clip(class=item.disable?'disable':'', class=item.del?'delete':'')
 						.order-card__border
 						.order-card__bg
 						
@@ -205,6 +162,16 @@ block content
 								+svg('ic-crown','ic-crown', '24', '24')
 
 						.order-card__top
+							if(item.order_status == 'done')
+								.order-card-status
+									+svg('ic-check','ic-check', '10', '7')
+									|Done
+
+							if(item.order_status == 'canceled')
+								.order-card-status.order-card-status_red
+									+svg('ic-close','ic-close', '10', '10')
+									|Canceled
+
 							.order-card__head
 								if(item.icon)
 									.order-card__head-icon
@@ -231,7 +198,7 @@ block content
 										span.order-card-info-item__text= item.status
 
 								if(item.time)
-									.order-card-time
+									.order-card-time(class=item.time_green?'order-card-time_green':'')
 										span.order-card-time__icon
 											+svg('ic-clock','ic-clock', '19', '19')
 										span.order-card-time__val= item.time
@@ -239,12 +206,30 @@ block content
 							if(item.progress)
 								.order-card__progress(class=item.header_color?'order-card__progress_'+item.header_color:'')
 
+							if(item.del)
+								.order-card__del
+									+svg('ic-trash','ic-trash', '24', '26')
+
 						.order-card__content
-							.order-card__list(class=item.child_blur?'order-card__content_blur':'')
+							if(item.note)
+								.order-card__note= item.note
+
+							if(item.timer)
+								.order-card__timer
+									+svg('ic-clock','ic-clock', '19', '19')
+									=item.timer
+
+							.order-card__list(class=item.child_blur?'order-card__list_blur':'')
 								each child in item.child
-									.order-card-item
+									.order-card-item(class=child.active?'active':'')
+										if(child.active)
+											.order-card-item__tag
+												+svg('ic-check','ic-check', '11', '8')
+												|Done
+
 										.order-card-item__head
-											.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
+											if(child.num)
+												.order-card-item__num(class=child.num_color?'order-card-item__num_'+child.num_color:'')= child.num
 											.order-card-item__title= child.title
 
 										.order-card-item__list
@@ -265,55 +250,38 @@ block content
 								.order-card-nav__arr
 									+svg('ic-arrow-right','ic-arrow-right', '40', '40')
 
-						.btn-circle(class=item.btn_status?item.btn_status:'', class=item.btn_color?'btn-circle_'+item.btn_color:'')
-							if(item.btn_color == 'orange')
-								+svg('ic-play','ic-play', '27', '27')
-							else
-								+svg('ic-check','ic-check', '29', '21')
+						//- .btn-circle(class=item.btn_status?item.btn_status:'', class=item.btn_color?'btn-circle_'+item.btn_color:'')
+						//- 	if(item.btn_color == 'orange')
+						//- 		+svg('ic-play','ic-play', '27', '27')
+						//- 	else
+						//- 		+svg('ic-check','ic-check', '29', '21')
 
 		.panel-actions
-			.panel-data
-				.panel-data__content
-					.panel-data__img
-						img(src="assets/img/logo-short-white.svg", alt="")
+			.panel-search
+				.panel-search__sect
+					.panel-search__field
+						input(type="text", value="11")
 
-					.panel-data__info
-						.panel-data__title Pizza Makeline
-						.panel-data__text Version 1.34.4
+						.panel-search__icon
+							+svg('ic-search','ic-search', '28', '28')
 
-				.panel-data__date-wrap
-					.panel-data__time 17:30
-					.panel-data__date 29 Sep, 2023
+				.panel-search__sect
+					.panel-search__keyboards
+						.panel-search__num 0
+						.panel-search__num.active 1
+						.panel-search__num 2
+						.panel-search__num 3
+						.panel-search__num 4
+						.panel-search__num 5
+						.panel-search__num 6
+						.panel-search__num 7
+						.panel-search__num 8
+						.panel-search__num 9
 
-			.panel-actions-btn
-				.panel-actions-btn__arr.disable
-					+svg('ic-arrow-left','ic-arrow-left', '48', '48')
+				.panel-search__sect
+					.panel-search__reset
+						+svg('ic-reset','ic-reset', '56', '46')
 
-				.panel-actions-btn__list
-					.panel-actions-btn__item.active
-						+svg('ic-note','ic-note', '38', '38')
-
-					.panel-actions-btn__item
-						+svg('ic-trash','ic-trash', '31', '34')
-
-					.panel-actions-btn__item
-						+svg('ic-archive','ic-archive', '38', '38')
-
-				.panel-actions-btn__arr
-					+svg('ic-arrow-right','ic-arrow-right', '48', '48')
-
-			.panel-actions-btn
-				.panel-actions-btn__sect
-					.panel-actions-btn__item
-						+svg('ic-moon','ic-moon', '34', '34')
-
-					.panel-actions-btn__item.active
-						+svg('ic-sun','ic-sun', '38', '38')
-
-				.panel-actions-btn__sect
-					.panel-actions-btn__item
-						+svg('ic-language','ic-language', '34', '34')
-
-					.panel-actions-btn__item
-						+svg('ic-setting','ic-setting', '34', '32')
-					
+				.panel-search__sect
+					.panel-search__close
+						+svg('ic-close','ic-close', '20', '20')

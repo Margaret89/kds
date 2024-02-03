@@ -239,10 +239,11 @@ block content
 											each val in child.list
 												.order-card-item__val= val
 
-										.order-card-item__msg
-											if(child.note_color=='blue')
+										if(child.note_color=='blue')
+											.order-card-item__msg
 												.msg.msg_blue= child.note
-											else if(child.note)
+										else if(child.note)
+											.order-card-item__msg
 												.msg.msg_red= child.note
 
 											.order-card-item__edit-time= child.edit_time

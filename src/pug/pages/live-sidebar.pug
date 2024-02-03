@@ -231,8 +231,8 @@ block content
 														+svg(val.icon, val.icon, val.icon_width, val.icon_height)
 													= val.text
 
-										.order-card-item__msg
-											if(child.note)
+										if(child.note)
+											.order-card-item__msg
 												.msg.msg_red= child.note
 
 						if(item.pager)
