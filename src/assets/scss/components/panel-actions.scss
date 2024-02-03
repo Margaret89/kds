@@ -353,6 +353,26 @@
 		&_red:hover{background-color: rgba(255, 71, 98, 0.3);}
 	}
 
+	&__actions > &__item{
+		margin: 0 30px;
+		position: relative;
+	}
+
+	&__actions > &__item::before,
+	&__actions > &__item::after{
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 54px;
+		background: #E5E7EB;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__actions > &__item::before{left: -30px;}
+	&__actions > &__item::after{right: -30px;}
+
 	&__close{
 		display: inline-flex;
 		align-items: center;

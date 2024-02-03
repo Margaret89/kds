@@ -268,6 +268,22 @@
 		.icon{fill: var(--color-danger);}
 	}
 
+	&__check{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background: var(--color-second);
+		position: absolute;
+		top: 27px;
+		right: 21px;
+		z-index: 10;
+
+		.icon{fill: #fff;}
+	}
+
 	&.disable{opacity: 0.4;}
 
 	&_danger &__border{
@@ -354,8 +370,9 @@
 	}
 
 	&_no-clip &__border{display: none;}
-
 	&_no-clip.selected &__bg{border: 3px solid var(--color-text);}
+
+	&_green &__bg{background: #EAFAF4;}
 }
 
 .order-card-info-list{
