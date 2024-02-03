@@ -1,0 +1,19 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Live';
+
+block content
+	.popup-wrap
+		.popup-choose
+			.popup-choose__close
+				+svg('ic-close','ic-close', '20', '20')
+
+			.popup-choose__title Please choose position
+
+			.popup-choose__content
+				textarea
+
+			.popup-choose__btn
+				.btn.btn_grey End of line
+				.btn.btn_green Line start
