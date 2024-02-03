@@ -51,20 +51,35 @@ block content
 		a.btn.btn_green(href='#') Button
 		br
 		br
-		a.btn.btn_grey(href='#') Button
-		br
-		br
 		a.btn-back(href='#')
 			+svg('ic-undo','ic-undo', '28', '22')
 			| Button
 
+		br
+		br
+		.btn-circle
+			+svg('ic-play','ic-play', '27', '27')
+		br
+		br
+		.btn-circle.btn-circle_orange
+			+svg('ic-check','ic-check', '29', '21')
+
+		br
+		br
+		.btn-circle.disable
+			+svg('ic-play','ic-play', '27', '27')
+			
+
+		br
+		br
 		div(style="background: #000; padding: 20px")
-			br
-			br
 			a.btn.btn_opacity(href='#')
 				+svg('ic-refresh','ic-refresh', '26', '26')
 				| Button
 		
+			br
+			br
+			a.btn.btn_grey(href='#') Button
 
 		br
 		br
@@ -125,6 +140,16 @@ block content
 				.type-icon__img
 					+svg('ic-arrow-right','ic-arrow-right', '40', '40')
 				.type-icon__name ic-arrow-right
+
+			.type-icon__item
+				.type-icon__img
+					+svg('ic-arr-left','ic-arr-left', '14', '23')
+				.type-icon__name ic-arr-left
+
+			.type-icon__item
+				.type-icon__img
+					+svg('ic-arr-right','ic-arr-right', '14', '23')
+				.type-icon__name ic-arr-right
 
 			.type-icon__item
 				.type-icon__img
