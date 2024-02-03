@@ -271,6 +271,12 @@ button.btn{
 	width: 100vw;
 	height: 100vh;
 	overflow-y: auto;
+	background: rgba(208, 214, 224, 0.15);
+	backdrop-filter: blur(40px);
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1000;
 }
 
 @media (max-width: 991px) {
