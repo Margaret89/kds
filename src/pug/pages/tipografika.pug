@@ -57,6 +57,13 @@ block content
 		a.btn-back(href='#')
 			+svg('ic-undo','ic-undo', '28', '22')
 			| Button
+
+		div(style="background: #000; padding: 20px")
+			br
+			br
+			a.btn.btn_opacity(href='#')
+				+svg('ic-refresh','ic-refresh', '26', '26')
+				| Button
 		
 
 		br
@@ -228,4 +235,9 @@ block content
 				.type-icon__img
 					+svg('ic-frame','ic-frame', '58', '58')
 				.type-icon__name ic-frame
+			
+			.type-icon__item
+				.type-icon__img
+					+svg('ic-refresh','ic-refresh', '26', '26')
+				.type-icon__name ic-refresh
 			

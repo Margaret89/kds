@@ -312,10 +312,7 @@ block content
 						+svg('ic-setting','ic-setting', '34', '32')
 					
 	.popup-wrap
-		.popup-identif-wrap
-			.btn-photo
-				+svg('ic-face','ic-face', '58', '58')
-
+		.popup-identif-wrap(style="padding: 0;")
 			.popup-identif
 				.popup-identif__content
 					.popup-identif__close
@@ -328,6 +325,14 @@ block content
 
 					.popup-identif__text Please position your face inside the frame
 
-					.popup-identif__photo(style="background-image: url(assets/img/man.jpg)")
-						.popup-identif__frame
-							img(src="assets/img/frame.png", alt="")
+					.popup-identif__photo.popup-identif__photo_blur(style="background-image: url(assets/img/man.jpg)")
+						.btn.btn_opacity
+							+svg('ic-refresh','ic-refresh', '26', '26')
+							|Try again
+
+				.popup-identif-info
+					.popup-identif-info__content
+						.popup-identif-info__title Having problems?
+						.popup-identif-info__text Type your employee code and password manually to continue
+
+					.btn Try manually

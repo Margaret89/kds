@@ -18,8 +18,10 @@
 	background: #fff;
 	border-radius: 33px;
 	border: 1px solid #D6D8DE;
-	padding: 45px 40px;
 	position: relative;
+	overflow: hidden;
+
+	&__content{padding: 45px 40px;}
 
 	&__close{
 		display: inline-flex;
@@ -64,6 +66,9 @@
 	}
 
 	&__photo{
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		height: 360px;
 		margin-top: 37px;
 		border-radius: 33px;
@@ -72,6 +77,24 @@
 		background-size: cover;
 		overflow: hidden;
 		position: relative;
+
+		&_blur::before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			backdrop-filter: blur(40px);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.btn{
+			min-width: 0;
+			position: relative;
+			font-size: 1.5rem;
+			padding: 0 20px;
+		}
 	}
 
 	&__frame{
@@ -104,5 +127,32 @@
 	&:hover{
 		background: var(--color-primary);
 		.icon{fill: #fff;}
+	}
+}
+
+.popup-identif-info{
+	display: flex;
+	align-items: center;
+	gap: 115px;
+	padding: 40px;
+	background: #FFF9F4;
+	border-top: 1px solid #E5E7EB;
+
+	&__title{
+		font-size: 2.4rem;
+		font-weight: 600;
+	}
+
+	&__text{
+		font-size: 1.5rem;
+		line-height: 1.5;
+		margin-top: 3px;
+	}
+
+	.btn{
+		flex-shrink: 0;
+		min-width: 0;
+		font-size: 1.8rem;
+		padding: 0 20px;
 	}
 }
