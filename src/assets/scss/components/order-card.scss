@@ -345,6 +345,8 @@
 
 	&.delete &__del{display: block;}
 
+	&.selected &__border{background: var(--color-text);}
+
 	&_no-clip &__bg{
 		clip-path: none;
 		border-radius: 25px;
@@ -352,6 +354,8 @@
 	}
 
 	&_no-clip &__border{display: none;}
+
+	&_no-clip.selected &__bg{border: 3px solid var(--color-text);}
 }
 
 .order-card-info-list{

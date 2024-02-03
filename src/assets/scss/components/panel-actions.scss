@@ -59,6 +59,8 @@
 	&__date{
 		font-size: 1.4rem;
 	}
+	
+	&.disable{opacity: 0.3;}
 }
 
 .panel-actions-btn{
@@ -189,6 +191,8 @@
 			margin: 0 auto;
 		}
 	}
+
+	&.disable{opacity: 0.3;}
 }
 
 .panel-actions-tooltip{
@@ -239,6 +243,136 @@
 		&:hover{
 			color: #fff;
 			text-decoration: none;
+		}
+	}
+}
+
+.panel-select{
+	display: inline-flex;
+	align-items: center;
+	gap: 40px;
+	padding: 10px 17px;
+	border-radius: 33px;
+	border: 1px solid #E5E7EB;
+	background: #fff;
+
+	&__info{
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__num{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 68px;
+		height: 68px;
+		border-radius: 23px;
+		background: #67707B;
+		font-size: 2.5rem;
+		font-weight: 600;
+		line-height: 1;
+		color: #fff;
+	}
+
+	&__label{
+		font-size: 1.5rem;
+		font-weight: 600;
+		line-height: 1.2;
+		color: #67707B;
+	}
+
+	&__actions{
+		display: flex;
+		align-items: center;
+		gap: 22px;
+	}
+
+	&__arr{
+		padding: 0 30px;
+		position: relative;
+		cursor: pointer;
+
+		.icon{
+			fill: #67707B;
+			transition: fill 0.2s ease 0s;
+		}
+
+		&:hover .icon{fill: var(--color-primary);}
+
+		&.disable,
+		&.disable:hover{
+			cursor: auto;
+			.icon{fill: #E3E6EA;}
+		}
+	}
+
+	&__arr:first-child::after,
+	&__arr:last-child::after{
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 54px;
+		background: #E5E7EB;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__arr:first-child::after{right: 0;}
+	&__arr:last-child::after{left: 0;}
+
+	&__list{
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(41, 207, 142, 0.1);
+		width: 68px;
+		height: 68px;
+		border-radius: 23px;
+		position: relative;
+		transition: background-color 0.2s ease 0s;
+		cursor: pointer;
+
+		.icon{fill: var(--color-second);}
+		&:hover{background-color: rgba(41, 207, 142, 0.3);}
+
+		&_red{
+			background-color: rgba(255, 71, 98, 0.1);
+			.icon{fill: var(--color-danger);}
+		}
+
+		&_red:hover{background-color: rgba(255, 71, 98, 0.3);}
+	}
+
+	&__close{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 56px;
+		height: 56px;
+		background: #F4F6FA;
+		border-radius: 50%;
+		transition: background-color 0.2s ease 0s;
+		cursor: pointer;
+
+		.icon{
+			fill: var(--color-text);
+			transition: fill 0.2s ease 0s;
+		}
+
+		&:hover{
+			background-color: var(--color-primary);
+			.icon{fill: #fff;}
 		}
 	}
 }
