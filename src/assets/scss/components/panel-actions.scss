@@ -498,11 +498,72 @@
 		position: relative;
 		transition: background-color 0.2s ease 0s;
 		cursor: pointer;
+		position: relative;
 
 		.icon{fill: #fff;}
 		&:hover{background-color: rgba(41, 207, 142, 0.7);}
 
 		&_red{background-color: var(--color-danger);}
 		&_red:hover{background-color: rgba(255, 71, 98, 0.7);}
+
+		&.active{
+			width: 84px;
+			height: 84px;
+			border-radius: 29px;
+
+			.ic-check{
+				width: 35px;
+				height: 25px;
+			}
+
+			&:hover{
+				background-color: var(--color-second);
+				cursor: auto;
+			}
+		}
 	}
+
+	&__progress{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		svg{
+			width: 108px;
+			height: 108px;
+		}
+
+		path{
+			fill: none;
+			stroke-width: 8px;
+			stroke: var(--color-second);
+			stroke-dasharray: 338;
+			stroke-dashoffset: calc(338px - (338px * var(--percent)) / 100);
+			animation: anim 1s ease-out;
+		}
+	}
+
+	&.progressing{
+		background: rgba(255,255,255,0.4);
+		border-color: rgba(214, 216, 222, 0.4);
+	}
+
+	&.progressing &__arr,
+	&.progressing &__item:not(.active){
+		opacity: 0.4;
+	}
+
+	&.progressing &__arr:hover,
+	&.progressing &__item:not(.active){
+		cursor: auto;
+	}
+
+	&.progressing &__arr:not(.disable):hover .icon{fill: #67707b;}
+	&.progressing &__item_red:hover{background-color: var(--color-danger);}
+}
+
+@keyframes anim {
+    0% { stroke-dashoffset: 338; }
+    100% { stroke-dashoffset: calc(338px - (338px * var(--percent)) / 100); }
 }

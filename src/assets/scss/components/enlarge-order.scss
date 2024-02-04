@@ -57,6 +57,27 @@
 
 	&__info{padding-left: 23px;}
 
+	&__info-wrap{
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	&__info-wrap &__info{padding: 0;}
+
+	&__vip{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 90px;
+		height: 116px;
+		background: #FCC63A;
+		border-radius: 27px;
+
+		.icon{fill: #926D0F;}
+	}
+
 	&__title{
 		font-size: 4.4rem;
 		font-weight: 600;
