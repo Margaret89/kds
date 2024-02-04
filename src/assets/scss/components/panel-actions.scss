@@ -72,6 +72,7 @@
 	background: #fff;
 	border-radius: 33px;
 	border: 1px solid #E5E7EB;
+	position: relative;
 
 	&__list{
 		display: flex;
@@ -193,6 +194,12 @@
 	}
 
 	&.disable{opacity: 0.3;}
+
+	.setting{
+		position: absolute;
+		bottom: calc(100% + 10px);
+		right: 0;
+	}
 }
 
 .panel-actions-tooltip{
@@ -561,6 +568,44 @@
 
 	&.progressing &__arr:not(.disable):hover .icon{fill: #67707b;}
 	&.progressing &__item_red:hover{background-color: var(--color-danger);}
+}
+
+.setting{
+	width: 248px;
+	background: #fff;
+	border-radius: 25px;
+	border: 1px solid #D6D8DE;
+	padding: 14px;
+
+	&__item{
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		min-height: 5.2rem;
+		background: rgba(141, 169, 205, 0.1);
+		border-radius: 15px;
+		padding: 5px 17px;
+		font-size: 1.5rem;
+		cursor: pointer;
+		transition: background-color 0.2s ease 0s;
+
+		&:not(:last-child){margin-bottom: 10px;}
+
+		&:hover{background: rgba(141, 169, 205, 0.3);}
+	}
+
+	&__icon{
+		flex-shrink: 0;
+		.icon{display: block;}
+	}
+
+	&__item_red{
+		background: rgba(255, 71, 98, 0.1);
+		color: var(--color-danger);
+
+		.icon{fill: var(--color-danger);}
+		&:hover{background: rgba(255, 71, 98, 0.3);}
+	}
 }
 
 @keyframes anim {
